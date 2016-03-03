@@ -1,0 +1,25 @@
+{
+  "name": "sshconfig2iterm",
+  "version": "1.0.0",
+  "description": "Convert SSH Config Files to iTerm 2 Profiles",
+  "repository": "derimagia/sshconfig2iterm",
+  "author": "Dave Wikoff",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "iterm2",
+    "ssh",
+    "cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ssh-config": "^0.2.1"
+  }
+}

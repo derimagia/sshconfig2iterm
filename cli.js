@@ -1,3 +1,8 @@
+#!/usr/bin/env node
+'use strict';
+
+process.bin = process.title = 'sshconfig2iterm';
+
 var sshConfig = require('ssh-config');
 var config = require('minimist')(process.argv.slice(2));
 
@@ -10,14 +15,14 @@ fs.readFile(process.env.HOME + '/.ssh/config', function (err, data) {
     throw err;
   }
 
-  config = sshConfig.parse(data.toString());
+  sshConfig = sshConfig.parse(data.toString());
 
   var output = {
     Profiles: [],
   };
 
-  for (var i = 0, len = config.length; i < len; i++) {
-    var section = config[i];
+  for (var i = 0, len = sshConfig.length; i < len; i++) {
+    var section = sshConfig[i];
 
     var host = section.Host;
 
@@ -62,7 +67,6 @@ fs.readFile(process.env.HOME + '/.ssh/config', function (err, data) {
     if(err) {
       throw err;
     }
-
 
     if (config.save) {
       console.log("Saved %d entires into your iTerm2 Profile.\n", output.Profiles.length);

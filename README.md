@@ -3,6 +3,15 @@
 This will convert ssh config files (located at ~/.ssh/config) to [iTerm2 Dynamic Profiles](https://www.iterm2.com/dynamic-profiles.html).
 
 Because this is for iTerm, this will only work on Mac.
+
+To install, runn:
+```
+npm i -g sshconfig2iterm # Install it
+
+sshconfig2iterm # Print out the generated iTerm2 dynamic profile
+sshconfig2iterm --save # to save the profile to ~/Library/Application Support/iTerm2/DynamicProfiles/profiles.json
+```
+
 ### Example Config Mapping
 
 ##### ~/.ssh/config

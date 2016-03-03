@@ -11,15 +11,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "cli.js"
+    "index.js"
   ],
   "keywords": [
     "iterm2",
     "ssh",
-    "cli"
+    "cli",
+    "osx",
+    "mac",
+    "terminal"
   ],
   "license": "MIT",
   "dependencies": {
+    "minimist": "^1.2.0",
     "ssh-config": "^0.2.1"
   }
 }

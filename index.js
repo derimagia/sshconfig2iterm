@@ -1,4 +1,5 @@
 var sshConfig = require('ssh-config');
+var config = require('minimist')(process.argv.slice(2));
 
 var fs = require('fs');
 
@@ -38,6 +39,7 @@ fs.readFile(process.env.HOME + '/.ssh/config', function (err, data) {
     if (section['#Label']) {
       name = section['#Label'];
     }
+
     var itermObj = {
       'Guid' : host,
       'Name' : name,
@@ -55,11 +57,17 @@ fs.readFile(process.env.HOME + '/.ssh/config', function (err, data) {
   }
 
   var json = JSON.stringify(output, null, '  ');
-  console.log(json);
+
   fs.writeFile(outputLocation, json, function(err) {
     if(err) {
       throw err;
     }
-    console.log("Saved %d entires into your iTerm2 Profile.\n", output.Profiles.length);
+
+
+    if (config.save) {
+      console.log("Saved %d entires into your iTerm2 Profile.\n", output.Profiles.length);
+    } else {
+      console.log(json);
+    }
   });
 });

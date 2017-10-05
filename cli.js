@@ -50,7 +50,7 @@ fs.readFile(process.env.HOME + '/.ssh/config', function (err, data) {
       'Name' : name,
       'ShortCut' : '',
       'Custom Command' : 'Yes',
-      'Command' : 'ssh ' + host,
+      'Command' : 'bash -lc "ssh ' + host + '"',
     }
 
     if (section['#Tags']) {
